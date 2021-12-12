@@ -9,6 +9,8 @@ This plugin uses the [JUCE](https://github.com/juce-framework/JUCE) library.
 To use the plugin you will need an audio plugin host, like a DAW, that can load plugins from custom paths. \
 If that doesn't sound too daunting, head to the [releases page](https://github.com/LensPlaysGames/Gainbit/releases) to download the latest and greatest; check back if you have any issues.
 
+Double click on a slider to reset it to default.
+
 #### Windows
 FL Studio requires that all `.vst3` plugins be placed in a single specific folder: \
 `C:\Program Files\Common Files\VST3\` \
