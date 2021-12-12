@@ -1,7 +1,7 @@
 # Gainbit
 A bit-crusher with a volume slider.
 
-![A screenshot of the plugin loaded in FL Studio, a DAW.](https://imgur.com/a/YGIZwha)
+![A screenshot of the plugin loaded in FL Studio, a DAW.](https://i.imgur.com/QKH9Wdj.png)
 
 This plugin uses the [JUCE](https://github.com/juce-framework/JUCE) library.
 
