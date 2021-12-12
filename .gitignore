@@ -38,3 +38,6 @@
 # JUCE
 Gainbit/Builds
 Gainbit/JuceLibraryCode
+
+# JUCE Audio Plugin Host
+*.filtergraph
