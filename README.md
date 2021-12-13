@@ -1,11 +1,15 @@
 # Gainbit
 A bit-crusher with a volume slider.
 
+![A screenshot of the plugin loaded in FL Studio, a DAW.](https://i.imgur.com/QKH9Wdj.png)
+
 This plugin uses the [JUCE](https://github.com/juce-framework/JUCE) library.
 
 ### Using the plugin
 To use the plugin you will need an audio plugin host, like a DAW, that can load plugins from custom paths. \
 If that doesn't sound too daunting, head to the [releases page](https://github.com/LensPlaysGames/Gainbit/releases) to download the latest and greatest; check back if you have any issues.
+
+Double click on a slider to reset it to default.
 
 #### Windows
 FL Studio requires that all `.vst3` plugins be placed in a single specific folder: \
