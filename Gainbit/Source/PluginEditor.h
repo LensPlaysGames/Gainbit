@@ -14,7 +14,7 @@
 //==============================================================================
 /**
 */
-class GainbitAudioProcessorEditor   : public juce::AudioProcessorEditor
+class GainbitAudioProcessorEditor : public juce::AudioProcessorEditor
 {
 public:
     GainbitAudioProcessorEditor (GainbitAudioProcessor&);
@@ -38,6 +38,9 @@ private:
 
     juce::Slider bitCrusher_bitDepthSlider;
     juce::AudioProcessorValueTreeState::SliderAttachment bitCrusher_bitDepthAttachment;
+
+    juce::Slider bitCrusher_bitRateSlider;
+    juce::AudioProcessorValueTreeState::SliderAttachment bitCrusher_bitRateAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GainbitAudioProcessorEditor)
 };

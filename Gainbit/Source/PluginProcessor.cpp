@@ -184,9 +184,6 @@ void GainbitAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 
 void GainbitAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
-
     auto tree = juce::ValueTree::readFromData(data, sizeInBytes);
     if (tree.isValid()) {
         apvts.replaceState(tree);
@@ -208,6 +205,7 @@ GainbitAudioProcessor::ChainSettings GainbitAudioProcessor::getChainSettingsFrom
     settings.gain = apvts.getRawParameterValue("Gain")->load();
 
     settings.bitCrusherDepth = apvts.getRawParameterValue("BitCrusherDepth")->load();
+    settings.bitCrusherRate = apvts.getRawParameterValue("BitCrusherRate")->load();
 
     return settings;
 }
@@ -222,7 +220,9 @@ void GainbitAudioProcessor::UpdateAll()
 void GainbitAudioProcessor::UpdateChainFromSettings(MonoChain& chain, ChainSettings settings)
 {
     chain.get<ChainPositions::Gain>().setGainDecibels(settings.gain);
-    chain.get<ChainPositions::BitCrusher>().setBitDepth(settings.bitCrusherDepth);
+    auto& bitCrusher = chain.get<ChainPositions::BitCrusher>();
+    bitCrusher.setBitDepth(settings.bitCrusherDepth);
+    bitCrusher.setBitRate(settings.bitCrusherRate);
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout GainbitAudioProcessor::createParameterLayout() {
@@ -233,6 +233,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout GainbitAudioProcessor::creat
 
     /* Bit Crusher Settings */
     layout.add(std::make_unique<juce::AudioParameterInt>("BitCrusherDepth", "Bit Crusher Depth", 2, 32, 8));
+    layout.add(std::make_unique<juce::AudioParameterInt>("BitCrusherRate", "Bit Crusher Rate", 8, 196000, 4096));
 
     return layout;
 }
