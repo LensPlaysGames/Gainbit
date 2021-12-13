@@ -1,11 +1,3 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -17,6 +9,12 @@ GainbitAudioProcessorEditor::GainbitAudioProcessorEditor (GainbitAudioProcessor&
       bitCrusher_bitDepthAttachment(audioProcessor.apvts, "BitCrusherDepth", bitCrusher_bitDepthSlider),
       bitCrusher_bitRateAttachment(audioProcessor.apvts, "BitCrusherRate", bitCrusher_bitRateSlider)
 {
+    auto& defaultLookAndFeel = getLookAndFeel();
+    // Slider
+    defaultLookAndFeel.setColour(juce::Slider::ColourIds::thumbColourId, juce::Colours::red);
+    defaultLookAndFeel.setColour(juce::Slider::ColourIds::textBoxOutlineColourId, juce::Colours::transparentBlack);
+    defaultLookAndFeel.setColour(juce::Slider::ColourIds::trackColourId, juce::Colours::darkgrey);
+
     #pragma region Configure Components
     /* Configure components */
     gainSlider.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
@@ -32,7 +30,7 @@ GainbitAudioProcessorEditor::GainbitAudioProcessorEditor (GainbitAudioProcessor&
     bitCrusher_bitRateSlider.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
     bitCrusher_bitRateSlider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::TextBoxRight, true, 50, 20);
     bitCrusher_bitRateSlider.setTextBoxIsEditable(true);
-    bitCrusher_bitRateSlider.setNormalisableRange(juce::NormalisableRange<double>(8, 196000, 2, 0.1));
+    bitCrusher_bitRateSlider.setNormalisableRange(juce::NormalisableRange<double>(8, 196000, 2, 0.333));
     #pragma endregion 
 
     /* Add and make visible every component */
