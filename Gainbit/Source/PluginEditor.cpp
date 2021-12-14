@@ -57,8 +57,6 @@ void GainbitAudioProcessorEditor::paint (juce::Graphics& g)
 
     /* Draw parameter labels */
     g.setColour(juce::Colours::white);
-    juce::Font font = juce::Font();
-    g.setFont(font);
     g.setFont(18);
     g.drawFittedText("Gain", labelBounds.removeFromTop(labelBounds.getHeight() * 0.333f), juce::Justification::centred, 1);
     g.drawFittedText("Bit Depth", labelBounds.removeFromTop(labelBounds.getHeight() * 0.5f), juce::Justification::centred, 2);
